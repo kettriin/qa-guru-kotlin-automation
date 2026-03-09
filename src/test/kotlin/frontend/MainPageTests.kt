@@ -43,4 +43,10 @@ class MainPageTest : BaseUiTest() {
         sleep(2000)
         WebDriverRunner.url() shouldContain headerLinks.expectedUrl
     }
+
+    @Test
+    @DisplayName("Ссылки в хедере кликабельны")
+    fun clickHeaderLinks() {
+        Header().clickAllNavLinks()
+    }
 }
