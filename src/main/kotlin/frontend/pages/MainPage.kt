@@ -29,4 +29,9 @@ class MainPage {
     fun header(): Header {
         return Header()
     }
+
+    @Step("Получить Header из главной страницы")
+    fun navigateToHeader(): Header {
+        return header()
+    }
 }

@@ -41,7 +41,11 @@ class MainPageTest : BaseUiTest() {
     @DisplayName("Переход по страницам из навигации в хедере")
     @EnumSource(HeaderLinks::class)
     fun headerNaviTest(headerLinks: HeaderLinks) {
-        Header().clickLink(headerLinks.linkName)
+        MainPage()
+            .openMainPage()
+            .navigateToHeader()
+            .clickLink(headerLinks.linkName)
+
         WebDriverRunner.url() shouldContain headerLinks.expectedUrl
     }
 
