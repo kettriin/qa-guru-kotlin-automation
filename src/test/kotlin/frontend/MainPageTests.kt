@@ -6,7 +6,6 @@ import frontend.components.HeaderLinks
 import frontend.helpers.BaseUiTest
 import frontend.pages.MainPage
 import frontend.pages.ProductsPage
-import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.string.shouldContain
 import org.junit.jupiter.api.Disabled
@@ -29,10 +28,13 @@ class MainPageTest : BaseUiTest() {
     @Test
     @DisplayName("Переход с главной страницы на страницу Продукты через хедер")
     fun redirectToProductsByHeader() {
-        MainPage().header().clickLink("Products")
-        val productCardsAmmount = ProductsPage().getProductList()
+        MainPage()
+            .openMainPage()
+            .header()
+            .clickLink("Products")
 
-        productCardsAmmount shouldHaveSize 6
+        val title = ProductsPage().getTitle()
+        title shouldBe "All Products"
     }
 
     @ParameterizedTest
