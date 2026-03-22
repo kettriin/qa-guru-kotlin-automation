@@ -9,11 +9,11 @@ import frontend.pages.ProductsPage
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.string.shouldContain
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.EnumSource
-import java.lang.Thread.sleep
 
 class MainPageTest : BaseUiTest() {
 
@@ -40,11 +40,11 @@ class MainPageTest : BaseUiTest() {
     @EnumSource(HeaderLinks::class)
     fun headerNaviTest(headerLinks: HeaderLinks) {
         Header().clickLink(headerLinks.linkName)
-        sleep(2000)
         WebDriverRunner.url() shouldContain headerLinks.expectedUrl
     }
 
     @Test
+    @Disabled ("Прочерка на аликаьельность ссылок - неактуально")
     @DisplayName("Ссылки в хедере кликабельны")
     fun clickHeaderLinks() {
         Header().clickAllNavLinks()

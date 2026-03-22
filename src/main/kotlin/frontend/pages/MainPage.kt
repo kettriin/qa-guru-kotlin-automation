@@ -1,11 +1,13 @@
 package frontend.pages
 
+import com.codeborne.selenide.Condition
 import com.codeborne.selenide.Selenide.element
 import com.codeborne.selenide.Selenide.open
 import com.codeborne.selenide.SelenideElement
 import frontend.components.Header
 import frontend.helpers.Wrappers.Companion.byDataTestId
 import io.qameta.allure.Step
+import java.time.Duration
 
 class MainPage {
 
@@ -19,6 +21,7 @@ class MainPage {
 
     @Step("Получить название кофейни")
     fun getMainImageText(): String {
+        mainImageText.shouldBe(Condition.visible, Duration.ofSeconds(2))
         return mainImageText.text
     }
 
@@ -26,5 +29,4 @@ class MainPage {
     fun header(): Header {
         return Header()
     }
-
 }
