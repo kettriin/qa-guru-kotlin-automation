@@ -1,6 +1,6 @@
 package frontend
 
-import com.codeborne.selenide.WebDriverRunner
+import com.codeborne.selenide.Selenide
 import frontend.components.Header
 import frontend.components.HeaderLinks
 import frontend.helpers.BaseUiTest
@@ -46,7 +46,7 @@ class MainPageTest : BaseUiTest() {
             .navigateToHeader()
             .clickLink(headerLinks.linkName)
 
-        WebDriverRunner.url() shouldContain headerLinks.expectedUrl
+        Selenide.webdriver().driver().url() shouldContain headerLinks.expectedUrl
     }
 
     @Test
