@@ -25,13 +25,8 @@ class MainPage {
         return mainImageText.text
     }
 
-    @Step("Перейти к компоненту Header")
-    fun header(): Header {
-        return Header()
-    }
-
     @Step("Получить Header из главной страницы")
     fun navigateToHeader(): Header {
-        return header()
+        return Header()
     }
 }

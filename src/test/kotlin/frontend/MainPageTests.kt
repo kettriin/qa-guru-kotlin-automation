@@ -1,10 +1,10 @@
 package frontend
 
-import com.codeborne.selenide.Selenide
 import frontend.components.Header
-import frontend.components.HeaderLinks
+import frontend.helpers.HeaderLinks
 import frontend.helpers.BaseUiTest
 import frontend.pages.MainPage
+import frontend.pages.CommonSteps
 import frontend.pages.ProductsPage
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.string.shouldContain
@@ -30,7 +30,7 @@ class MainPageTest : BaseUiTest() {
     fun redirectToProductsByHeader() {
         MainPage()
             .openMainPage()
-            .header()
+            .navigateToHeader()
             .clickLink("Products")
 
         val title = ProductsPage().getTitle()
@@ -46,7 +46,7 @@ class MainPageTest : BaseUiTest() {
             .navigateToHeader()
             .clickLink(headerLinks.linkName)
 
-        Selenide.webdriver().driver().url() shouldContain headerLinks.expectedUrl
+        CommonSteps().getPageUrl() shouldContain headerLinks.expectedUrl
     }
 
     @Test

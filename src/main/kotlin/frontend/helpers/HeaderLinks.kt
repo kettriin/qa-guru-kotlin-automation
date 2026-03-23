@@ -1,4 +1,4 @@
-package frontend.components
+package frontend.helpers
 
 enum class HeaderLinks(
     val expectedUrl: String,
